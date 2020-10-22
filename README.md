@@ -78,7 +78,7 @@ Links are referenced by a new `link` property added to a glTF Node, using the in
 	}
 
 ### propertydb
-By definition, a BIM model is distinguished from a general 3d model by containing metadata about its elements. To keep file sizes optimal for web transmission, the wBIM format accesses this metadata via a linked SQLite database.
+By definition, a BIM model is distinguished from a general 3d model by containing metadata about its elements. To keep file sizes optimal for web transmission, and allow simple querying, the wBIM format accesses this metadata via a linked SQLite database.
 
 The required top level property `propertydb` is an object containing two required properties:
 - uri: the full uri for the properties database file OR the REST API for interacting with the database.
