@@ -138,3 +138,4 @@ The BIM Properties Database referenced by `propertydb` is a SQLite file containi
 | id | integer | A unique id. |
 | name | string | The name of the property |
 | dtype | string | The data type of the property |
+| category | string | One of "Instance", "Type", or "Family" |
