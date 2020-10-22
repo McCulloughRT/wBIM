@@ -47,36 +47,39 @@ Links may optionally include a bounding-box property `bbox` to aid in debugging 
 
 The following example shows a `links` array:
 
-    {
-	    "links": [
-		    {
-				"name": "East Building MEP - Revit",
-				"uri": "https://your.path.to/mep.wBIM",
-				"bbox": [100,100,100,0,0,0]
-			},
-			{
-				"name": "East Building Sculpture Concept - Sketchup",
-				"uri": "https://your.path.to/sculpture.gltf"
-			}
-		]
-    }
+```json
+{
+    "links": [
+	{
+		"name": "East Building MEP - Revit",
+		"uri": "https://your.path.to/mep.wBIM",
+		"bbox": [100,100,100,0,0,0]
+	},
+	{
+		"name": "East Building Sculpture Concept - Sketchup",
+		"uri": "https://your.path.to/sculpture.gltf"
+	}
+    ]
+}
+```
 
 Links are referenced by a new `link` property added to a glTF Node, using the index of the desired link from the `links` array. The node may still contain all standard glTF properties, including matrix or TRS properties to locate the linked model within the parent model:
 
-    {
-	    "nodes": [
-			{
-				"name": "MEP Link",
-				"link": 0,
-				"translation": [
-					-125.25,
-					-15.75,
-					15
-				]
-			}
-		]
-	}
-
+```json
+{
+	"nodes": [
+		{
+			"name": "MEP Link",
+			"link": 0,
+			"translation": [
+				-125.25,
+				-15.75,
+				15
+			]
+		}
+	]
+}
+```
 ### propertydb
 By definition, a BIM model is distinguished from a general 3d model by containing metadata about its elements. To keep file sizes optimal for web transmission, and allow simple querying, the wBIM format accesses this metadata via a linked SQLite database.
 
@@ -86,13 +89,14 @@ The required top level property `propertydb` is an object containing two require
 
 The following is a `propertydb` delcaration:
 
-    {
-		"propertydb": {
-			"uri": "http://localhost:8000/mepProperties.wBIMDb
-			"type": "static"
-		}
+```json
+{
+	"propertydb": {
+		"uri": "http://localhost:8000/mepProperties.wBIMDb
+		"type": "static"
 	}
-
+}
+```
 ### IoT
 To support the increasing use of Digital Twins and IoT devices, the top level `IoT` array contains a list of objects defining connections to resources containing live or queryable data. A sensor may specify  a websocket connection to stream from and / or a REST API to query. A sensor object has 3 properties:
 - name (required): a human readable name for the sensor to display in a UI.
@@ -103,24 +107,26 @@ A node may reference zero or more IoT data connections in its `sensors` array pr
 
 The following examples shows the usage of the `IoT` and `sensors` properties:
 
-    {
-	    "IoT": [
-		    {
-				"name": "Unit Temperature",
-				"stream": "wss://...",
-				"query": "https://..."
-			}
-	    ],
-	    "nodes": [
-			{
-				"name": "HVAC Unit 001",
-				"mesh": 0,
-				"sensors": [
-					0
-				]
-			}
-		]
-	}
+```json
+{
+	"IoT": [
+		{
+			"name": "Unit Temperature",
+			"stream": "wss://...",
+			"query": "https://..."
+		}
+	],
+	"nodes": [
+		{
+			"name": "HVAC Unit 001",
+			"mesh": 0,
+			"sensors": [
+				0
+			]
+		}
+	]
+}
+```
 
 ## BIM Properties Database
 The BIM Properties Database referenced by `propertydb` is a SQLite file containing two tables:
