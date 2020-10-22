@@ -1,6 +1,6 @@
 # wBim Format Specification 0.0.1
 
-Building Information Model content is often created with a diverse set of tools, each with a proprietary format optimized for **authoring**  the content, that hampers their ability to be shared and viewed easily on any device and in low connectivity environments. While we recognize that tool specific features can sculpt a format intended to be written to, and by necessity make it proprietary, a universal and open *viewing* format is needed for the building industry to effectively collaborate across disciplines.
+Building Information Model content is often created with a diverse set of tools, each with a proprietary format optimized for **authoring**  the content. This hampers their ability to be shared and viewed easily on any device and in low connectivity environments. While we recognize that tool specific features can sculpt a format intended to be written to, and by necessity make it proprietary, a universal and open *viewing* format is needed for the building industry to effectively collaborate across disciplines.
 
 This format sets out with the assumption that a effective universal viewing format should be:
 - Open source and permissively licensed. Developer adoption is paramount. 
